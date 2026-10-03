@@ -1,4 +1,6 @@
 <?php
+// Mui gio Viet Nam: moi ham date()/time() trong he thong dung gio VN (khop may cham cong thuc te)
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 $host = 'localhost';
 $dbname = 'hrm_system';
 $username = 'root';

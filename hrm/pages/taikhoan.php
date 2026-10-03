@@ -47,7 +47,7 @@ $taiKhoans = $pdo->query("SELECT t.*, n.MaNV, n.HoVaTen FROM TaiKhoan t LEFT JOI
 renderHeader('Quản trị Tài khoản & Phân quyền');
 
 if ($msg = $_GET['msg'] ?? '') {
-    $texts = ['added'=>['green','Cấp tài khoản mới thành công!'],'role'=>['blue','Gán vai trò thành công!'],'lock'=>['yellow','Cập nhật trạng thái khóa/mở thành công!'],'reset'=>['blue','Đặt lại mật khẩu thành công!'],'deleted'=>['red','Đã xóa tài khoản!'],'linked'=>['green','Liên kết tài khoản với hồ sơ thành công (TC04)!'],'unlinked'=>['yellow','Đã gỡ liên kết tài khoản!']];
+    $texts = ['added'=>['green','Cấp tài khoản mới thành công!'],'role'=>['blue','Gán vai trò thành công!'],'lock'=>['yellow','Cập nhật trạng thái khóa/mở thành công!'],'reset'=>['blue','Đặt lại mật khẩu thành công!'],'deleted'=>['red','Đã xóa tài khoản!'],'linked'=>['green','Liên kết tài khoản với hồ sơ thành công!'],'unlinked'=>['yellow','Đã gỡ liên kết tài khoản!']];
     [$cls,$txt] = $texts[$msg] ?? ['',''];
     if ($txt) echo "<div class=\"bg-{$cls}-50 text-{$cls}-700 px-4 py-3 rounded-lg mb-4\">$txt</div>";
 }
@@ -71,7 +71,7 @@ foreach ($taiKhoans as $tk) {
     $ttBadge = $tk['TrangThai'] ? '<span class="px-2 py-1 rounded-full text-xs bg-green-100 text-green-700">Hoạt động</span>' : '<span class="px-2 py-1 rounded-full text-xs bg-gray-200 text-gray-600">Đã khóa</span>';
     $nvInfo = $tk['HoVaTen'] ? htmlspecialchars($tk['HoVaTen']) . " ({$tk['MaNV']})" : '<span class="text-gray-400">Chưa liên kết</span>';
     $actions = '<div class="flex gap-1">'
-        . '<button type="button" onclick="openLink('.$tk['MaTaiKhoan'].',\''.$tk['MaNV'].'\')" class="text-green-600 hover:text-green-800" title="Liên kết với hồ sơ nhân sự (TC04)"><i class="fas fa-link"></i></button>'
+        . '<button type="button" onclick="openLink('.$tk['MaTaiKhoan'].',\''.$tk['MaNV'].'\')" class="text-green-600 hover:text-green-800" title="Liên kết với hồ sơ nhân sự"><i class="fas fa-link"></i></button>'
         . '<button type="button" onclick="editRole('.$tk['MaTaiKhoan'].',\''.$tk['VaiTro'].'\')" class="text-purple-500 hover:text-purple-700" title="Gán vai trò"><i class="fas fa-user-tag"></i></button>'
         . '<form method="POST" class="inline"><input type="hidden" name="action" value="lock"><input type="hidden" name="ma_tai_khoan" value="'.$tk['MaTaiKhoan'].'"><input type="hidden" name="trang_thai" value="'.($tk['TrangThai']?0:1).'"><button class="text-yellow-600 hover:text-yellow-800" title="'.($tk['TrangThai']?'Khóa':'Mở khóa').'"><i class="fas fa-'.($tk['TrangThai']?'lock':'lock-open').'"></i></button></form>'
         . '<button onclick="resetPass('.$tk['MaTaiKhoan'].')" class="text-blue-500 hover:text-blue-700" title="Đặt lại mật khẩu"><i class="fas fa-key"></i></button>'
@@ -119,7 +119,7 @@ renderTable($headers, $rows);
 
 <div id="modal-link" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
     <div class="bg-white rounded-xl w-full max-w-md shadow-2xl">
-        <div class="flex items-center justify-between px-6 py-4 border-b"><h3 class="font-semibold">Liên kết tài khoản ↔ hồ sơ (TC04)</h3><button type="button" onclick="toggleModal('modal-link', false)" class="text-gray-400"><i class="fas fa-times"></i></button></div>
+        <div class="flex items-center justify-between px-6 py-4 border-b"><h3 class="font-semibold">Liên kết tài khoản ↔ hồ sơ</h3><button type="button" onclick="toggleModal('modal-link', false)" class="text-gray-400"><i class="fas fa-times"></i></button></div>
         <form method="POST" class="px-6 py-4 space-y-4">
             <input type="hidden" name="action" value="link"><input type="hidden" name="ma_tai_khoan" id="link-tk">
             <p class="text-xs text-gray-500">Quy trình 2 bước (mục 3.3): Manager tạo hồ sơ trước (MaTaiKhoan NULL) → Admin cấp/liên kết tài khoản kỹ thuật tại đây.</p>
