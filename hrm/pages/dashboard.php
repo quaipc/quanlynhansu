@@ -70,9 +70,6 @@ if ($role === 'Admin') {
     $recentTK = $pdo->query("SELECT TenDangNhap, VaiTro, TrangThai, NgayTao FROM TaiKhoan ORDER BY NgayTao DESC LIMIT 5")->fetchAll();
     $coCau = $pdo->query("SELECT pb.MaPhongBan, pb.TenPhongBan, COUNT(n.MaNV) AS SoNV FROM PhongBan pb LEFT JOIN NhanVien n ON pb.MaPhongBan=n.MaPhongBan GROUP BY pb.MaPhongBan, pb.TenPhongBan")->fetchAll();
 ?>
-<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 text-sm text-blue-800">
-    <i class="fas fa-shield-alt mr-2"></i><b>Phân hệ Quản trị hệ thống:</b> Admin chỉ quản trị kỹ thuật (tài khoản, phân quyền RBAC, danh mục cơ cấu, giám sát). Không can thiệp nghiệp vụ duyệt nghỉ / tính lương — các quyền này thuộc Manager.
-</div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <div class="bg-white rounded-xl shadow-sm p-6">
         <h3 class="text-lg font-semibold mb-4"><i class="fas fa-user-plus text-blue-500 mr-2"></i>Tài khoản mới nhất</h3>
