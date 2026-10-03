@@ -132,7 +132,7 @@ CREATE TABLE `chucvu` (
 
 LOCK TABLES `chucvu` WRITE;
 /*!40000 ALTER TABLE `chucvu` DISABLE KEYS */;
-INSERT INTO `chucvu` VALUES ('CV05','Nh??n vi??n'),('CV06','Th???c t???p sinh');
+INSERT INTO `chucvu` VALUES ('CV05','Nhân viên'),('CV06','Thực tập sinh');
 /*!40000 ALTER TABLE `chucvu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +211,7 @@ CREATE TABLE `donxinnghi` (
 
 LOCK TABLES `donxinnghi` WRITE;
 /*!40000 ALTER TABLE `donxinnghi` DISABLE KEYS */;
-INSERT INTO `donxinnghi` VALUES (1,'NV004','NghiPhepNam','2026-09-10 08:00:00','2026-09-11 17:00:00','Ngh??? ph??p n??m ??i du l???ch','TuChoi','NV002','2026-09-22 15:10:39'),(2,'NV005','NghiOm','2026-09-05 08:00:00','2026-09-05 17:00:00','B??? c???m s???t','DaDuyet','NV002','2026-09-22 15:10:39'),(3,'NV006','NghiViecRieng','2026-09-15 08:00:00','2026-09-15 17:00:00','Gi???i quy???t vi???c gia ????nh','ChoDuyet',NULL,'2026-09-22 15:10:39'),(4,'NV004','NghiViecRieng','2026-09-17 15:17:00','2026-09-24 15:17:00','b???n sinh con v???i 5 c??','DaDuyet','NV002','2026-09-22 15:17:46');
+INSERT INTO `donxinnghi` VALUES (1,'NV004','NghiPhepNam','2026-09-10 08:00:00','2026-09-11 17:00:00','Nghỉ phép năm đi du lịch','TuChoi','NV002','2026-09-22 15:10:39'),(2,'NV005','NghiOm','2026-09-05 08:00:00','2026-09-05 17:00:00','Bị cảm sốt','DaDuyet','NV002','2026-09-22 15:10:39'),(3,'NV006','NghiViecRieng','2026-09-15 08:00:00','2026-09-15 17:00:00','Giải quyết việc gia đình','ChoDuyet',NULL,'2026-09-22 15:10:39'),(4,'NV004','NghiViecRieng','2026-09-17 15:17:00','2026-09-24 15:17:00','bận sinh con với 5 cô','DaDuyet','NV002','2026-09-22 15:17:46');
 /*!40000 ALTER TABLE `donxinnghi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,7 +272,7 @@ CREATE TABLE `khoahoc` (
 
 LOCK TABLES `khoahoc` WRITE;
 /*!40000 ALTER TABLE `khoahoc` DISABLE KEYS */;
-INSERT INTO `khoahoc` VALUES ('KH001','L???p tr??nh PHP n??ng cao','Kh??a h???c v??? PHP 8, Laravel, MySQL','Online','TS. Nguyen Van A','2026-09-01','2026-10-30',50000000.00),('KH002','Qu???n tr??? nh??n s??? hi???n ?????i','Ph????ng ph??p qu???n l?? nh??n s??? 4.0','Offline','PGS. Tran Thi B','2026-09-15','2026-09-20',30000000.00),('KH003','An ninh m???ng c?? b???n','Nh???p m??n cybersecurity','Hybrid','Ths. Le Van C','2026-10-01','2026-11-30',40000000.00);
+INSERT INTO `khoahoc` VALUES ('KH001','Lập trình PHP nâng cao','Khóa học về PHP 8, Laravel, MySQL','Online','TS. Nguyen Van A','2026-09-01','2026-10-30',50000000.00),('KH002','Quản trị nhân sự hiện đại','Phương pháp quản lý nhân sự 4.0','Offline','PGS. Tran Thi B','2026-09-15','2026-09-20',30000000.00),('KH003','An ninh mạng cơ bản','Nhập môn cybersecurity','Hybrid','Ths. Le Van C','2026-10-01','2026-11-30',40000000.00);
 /*!40000 ALTER TABLE `khoahoc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -339,7 +339,7 @@ CREATE TABLE `phongban` (
 
 LOCK TABLES `phongban` WRITE;
 /*!40000 ALTER TABLE `phongban` DISABLE KEYS */;
-INSERT INTO `phongban` VALUES ('PB01','Ph??ng Nh??n s???'),('PB02','Ph??ng K??? to??n'),('PB03','Ph??ng K??? thu???t'),('PB04','Ph??ng Marketing'),('PB05','Ph??ng Kinh doanh');
+INSERT INTO `phongban` VALUES ('PB01','Phòng Nhân sự'),('PB02','Phòng Kế toán'),('PB03','Phòng Kỹ thuật'),('PB04','Phòng Marketing'),('PB05','Phòng Kinh doanh');
 /*!40000 ALTER TABLE `phongban` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,4 +381,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-10-03  9:37:56
+-- Dump completed on 2026-10-03  9:46:59
