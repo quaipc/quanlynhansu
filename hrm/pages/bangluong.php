@@ -18,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $role === 'Manager') {
         $nvList = $pdo->query("SELECT n.MaNV, n.HoVaTen, h.LuongCoBan FROM NhanVien n JOIN HopDongLaoDong h ON n.MaNV=h.MaNV WHERE n.TrangThaiLamViec='DangLamViec' AND h.TrangThaiHopDong='HieuLuc'")->fetchAll();
         $stmtIns = $pdo->prepare("INSERT INTO BangLuong(MaNV,ThangNam,SoNgayCongChuan,SoNgayThucTe,LuongCoBan,ThucLinh,TrangThaiThanhToan) VALUES(?,?,?,?,?,?,?)");
         foreach ($nvList as $nv) {
-            $cc = $pdo->prepare("SELECT COUNT(*) FROM ChamCong WHERE MaNV=? AND MONTH(NgayChamCong)=? AND YEAR(NgayChamCong)=? AND TrangThaiCong IN ('DungGio','DiMuon')");
+            // Chi tinh nhung ngay cong da duoc Manager duyet
+            $cc = $pdo->prepare("SELECT COUNT(*) FROM ChamCong WHERE MaNV=? AND MONTH(NgayChamCong)=? AND YEAR(NgayChamCong)=? AND TrangThaiCong IN ('DungGio','DiMuon') AND TrangThaiDuyet='DaDuyet'");
             $cc->execute([$nv['MaNV'], explode('-', $thangNam)[1], explode('-', $thangNam)[0]]);
             $soNgayCong = $cc->fetchColumn();
             $luongCB = $nv['LuongCoBan'];

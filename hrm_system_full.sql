@@ -38,7 +38,7 @@ CREATE TABLE `bangluong` (
   PRIMARY KEY (`MaBangLuong`),
   UNIQUE KEY `UQ_Luong_Thang` (`MaNV`,`ThangNam`),
   CONSTRAINT `bangluong_ibfk_1` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `bangluong` (
 
 LOCK TABLES `bangluong` WRITE;
 /*!40000 ALTER TABLE `bangluong` DISABLE KEYS */;
-INSERT INTO `bangluong` VALUES (1,'NV001','2026-08',26,24.0,25000000.00,2000000.00,1000000.00,1500000.00,25961538.46,'DaThanhToan','2026-09-22 15:10:39'),(2,'NV002','2026-08',26,22.0,18000000.00,1500000.00,500000.00,1200000.00,16384615.38,'DaThanhToan','2026-09-22 15:10:39'),(3,'NV003','2026-08',26,25.0,18000000.00,1500000.00,800000.00,1200000.00,18307692.31,'DaThanhToan','2026-09-22 15:10:39'),(4,'NV004','2026-08',26,23.0,12000000.00,1000000.00,300000.00,900000.00,11215384.62,'DaThanhToan','2026-09-22 15:10:39'),(5,'NV005','2026-08',26,20.0,12000000.00,1000000.00,200000.00,900000.00,9615384.62,'DaThanhToan','2026-09-22 15:10:39'),(76,'NV001','2026-09',26,3.0,25000000.00,0.00,0.00,0.00,2884615.38,'ChuaThanhToan','2026-09-25 11:11:04'),(77,'NV002','2026-09',26,1.0,18000000.00,0.00,0.00,0.00,692307.69,'ChuaThanhToan','2026-09-25 11:11:04'),(78,'NV003','2026-09',26,1.0,18000000.00,0.00,0.00,0.00,692307.69,'ChuaThanhToan','2026-09-25 11:11:04'),(79,'NV004','2026-09',26,3.0,12000000.00,0.00,0.00,0.00,1384615.38,'ChuaThanhToan','2026-09-25 11:11:04'),(80,'NV005','2026-09',26,1.0,12000000.00,0.00,0.00,0.00,461538.46,'ChuaThanhToan','2026-09-25 11:11:04'),(81,'NV006','2026-09',26,1.0,13000000.00,0.00,0.00,0.00,500000.00,'ChuaThanhToan','2026-09-25 11:11:04'),(82,'NV008','2026-09',26,1.0,14000000.00,0.00,0.00,0.00,538461.54,'ChuaThanhToan','2026-09-25 11:11:04'),(160,'NV001','2026-10',26,0.0,25000000.00,0.00,0.00,0.00,0.00,'DaThanhToan','2026-10-03 10:01:35'),(161,'NV002','2026-10',26,0.0,18000000.00,0.00,0.00,0.00,0.00,'ChuaThanhToan','2026-10-03 10:01:35'),(162,'NV003','2026-10',26,0.0,18000000.00,0.00,0.00,0.00,0.00,'ChuaThanhToan','2026-10-03 10:01:35'),(163,'NV004','2026-10',26,1.0,12000000.00,0.00,0.00,0.00,461538.46,'DaThanhToan','2026-10-03 10:01:35'),(164,'NV005','2026-10',26,0.0,12000000.00,0.00,0.00,0.00,0.00,'ChuaThanhToan','2026-10-03 10:01:35'),(165,'NV006','2026-10',26,0.0,13000000.00,0.00,0.00,0.00,0.00,'ChuaThanhToan','2026-10-03 10:01:35'),(166,'NV008','2026-10',26,0.0,14000000.00,0.00,0.00,0.00,0.00,'DaThanhToan','2026-10-03 10:01:35');
+INSERT INTO `bangluong` VALUES (1,'NV001','2026-08',26,24.0,25000000.00,2000000.00,1000000.00,1500000.00,25961538.46,'DaThanhToan','2026-09-22 15:10:39'),(2,'NV002','2026-08',26,22.0,18000000.00,1500000.00,500000.00,1200000.00,16384615.38,'DaThanhToan','2026-09-22 15:10:39'),(3,'NV003','2026-08',26,25.0,18000000.00,1500000.00,800000.00,1200000.00,18307692.31,'DaThanhToan','2026-09-22 15:10:39'),(4,'NV004','2026-08',26,23.0,12000000.00,1000000.00,300000.00,900000.00,11215384.62,'DaThanhToan','2026-09-22 15:10:39'),(5,'NV005','2026-08',26,20.0,12000000.00,1000000.00,200000.00,900000.00,9615384.62,'DaThanhToan','2026-09-22 15:10:39'),(76,'NV001','2026-09',26,3.0,25000000.00,0.00,0.00,0.00,2884615.38,'ChuaThanhToan','2026-09-25 11:11:04'),(77,'NV002','2026-09',26,1.0,18000000.00,0.00,0.00,0.00,692307.69,'ChuaThanhToan','2026-09-25 11:11:04'),(78,'NV003','2026-09',26,1.0,18000000.00,0.00,0.00,0.00,692307.69,'ChuaThanhToan','2026-09-25 11:11:04'),(79,'NV004','2026-09',26,3.0,12000000.00,0.00,0.00,0.00,1384615.38,'ChuaThanhToan','2026-09-25 11:11:04'),(80,'NV005','2026-09',26,1.0,12000000.00,0.00,0.00,0.00,461538.46,'ChuaThanhToan','2026-09-25 11:11:04'),(81,'NV006','2026-09',26,1.0,13000000.00,0.00,0.00,0.00,500000.00,'ChuaThanhToan','2026-09-25 11:11:04'),(82,'NV008','2026-09',26,1.0,14000000.00,0.00,0.00,0.00,538461.54,'ChuaThanhToan','2026-09-25 11:11:04'),(167,'NV001','2026-10',26,0.0,25000000.00,0.00,0.00,0.00,0.00,'DaThanhToan','2026-10-03 14:20:46'),(168,'NV002','2026-10',26,0.0,18000000.00,0.00,0.00,0.00,0.00,'ChuaThanhToan','2026-10-03 14:20:46'),(169,'NV003','2026-10',26,0.0,18000000.00,0.00,0.00,0.00,0.00,'ChuaThanhToan','2026-10-03 14:20:46'),(170,'NV004','2026-10',26,1.0,12000000.00,0.00,0.00,0.00,461538.46,'DaThanhToan','2026-10-03 14:20:46'),(171,'NV005','2026-10',26,0.0,12000000.00,0.00,0.00,0.00,0.00,'ChuaThanhToan','2026-10-03 14:20:46'),(172,'NV006','2026-10',26,0.0,13000000.00,0.00,0.00,0.00,0.00,'ChuaThanhToan','2026-10-03 14:20:46'),(173,'NV008','2026-10',26,0.0,14000000.00,0.00,0.00,0.00,0.00,'DaThanhToan','2026-10-03 14:20:46');
 /*!40000 ALTER TABLE `bangluong` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,10 +65,14 @@ CREATE TABLE `chamcong` (
   `ThoiGianVao` time DEFAULT NULL,
   `ThoiGianRa` time DEFAULT NULL,
   `TrangThaiCong` enum('DungGio','DiMuon','VeSom','NghiKhongPhep','NghiCoPhep') DEFAULT 'DungGio',
+  `TrangThaiDuyet` enum('ChoDuyet','DaDuyet','TuChoi') NOT NULL DEFAULT 'ChoDuyet',
+  `MaNguoiDuyet` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`ID_ChamCong`),
   UNIQUE KEY `UQ_ChamCong_Ngay` (`MaNV`,`NgayChamCong`),
+  KEY `FK_ChamCong_NguoiDuyet` (`MaNguoiDuyet`),
+  CONSTRAINT `FK_ChamCong_NguoiDuyet` FOREIGN KEY (`MaNguoiDuyet`) REFERENCES `nhanvien` (`MaNV`) ON DELETE SET NULL,
   CONSTRAINT `chamcong_ibfk_1` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +81,7 @@ CREATE TABLE `chamcong` (
 
 LOCK TABLES `chamcong` WRITE;
 /*!40000 ALTER TABLE `chamcong` DISABLE KEYS */;
-INSERT INTO `chamcong` VALUES (1,'NV001','2026-09-01','08:25:00','17:05:00','DungGio'),(2,'NV001','2026-09-02','08:20:00','17:10:00','DungGio'),(3,'NV001','2026-09-03','08:35:00','17:00:00','DiMuon'),(4,'NV002','2026-09-01','08:15:00','17:00:00','DungGio'),(5,'NV002','2026-09-02','08:20:00','16:30:00','VeSom'),(6,'NV003','2026-09-01','08:10:00','17:05:00','DungGio'),(7,'NV004','2026-09-01','08:28:00','17:00:00','DungGio'),(8,'NV004','2026-09-02','08:45:00','17:10:00','DiMuon'),(9,'NV005','2026-09-01','08:20:00','17:00:00','DungGio'),(10,'NV006','2026-09-01','08:22:00','17:05:00','DungGio'),(11,'NV007','2026-09-01','08:30:00','17:00:00','DungGio'),(12,'NV008','2026-09-01','08:25:00','17:15:00','DungGio'),(13,'NV004','2026-09-22','10:16:37','10:41:04','DiMuon'),(14,'NV009','2026-09-25','04:16:44','04:16:53','DungGio'),(16,'NV004','2026-10-03','09:32:13','09:32:19','DiMuon');
+INSERT INTO `chamcong` VALUES (1,'NV001','2026-09-01','08:25:00','17:05:00','DungGio','DaDuyet',NULL),(2,'NV001','2026-09-02','08:20:00','17:10:00','DungGio','DaDuyet',NULL),(3,'NV001','2026-09-03','08:35:00','17:00:00','DiMuon','DaDuyet',NULL),(4,'NV002','2026-09-01','08:15:00','17:00:00','DungGio','DaDuyet',NULL),(5,'NV002','2026-09-02','08:20:00','16:30:00','VeSom','DaDuyet',NULL),(6,'NV003','2026-09-01','08:10:00','17:05:00','DungGio','DaDuyet',NULL),(7,'NV004','2026-09-01','08:28:00','17:00:00','DungGio','DaDuyet',NULL),(8,'NV004','2026-09-02','08:45:00','17:10:00','DiMuon','DaDuyet',NULL),(9,'NV005','2026-09-01','08:20:00','17:00:00','DungGio','DaDuyet',NULL),(10,'NV006','2026-09-01','08:22:00','17:05:00','DungGio','DaDuyet',NULL),(11,'NV007','2026-09-01','08:30:00','17:00:00','DungGio','DaDuyet',NULL),(12,'NV008','2026-09-01','08:25:00','17:15:00','DungGio','DaDuyet',NULL),(13,'NV004','2026-09-22','10:16:37','10:41:04','DiMuon','DaDuyet',NULL),(14,'NV009','2026-09-25','04:16:44','04:16:53','DungGio','DaDuyet',NULL),(16,'NV004','2026-10-03','09:32:13','09:32:19','DiMuon','DaDuyet',NULL),(17,'NV010','2026-10-03','13:51:03','13:51:13','DiMuon','DaDuyet',NULL),(18,'NV004','2026-10-08','17:33:32','17:33:38','DiMuon','DaDuyet','NV002');
 /*!40000 ALTER TABLE `chamcong` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,7 +319,7 @@ CREATE TABLE `nhanvien` (
 
 LOCK TABLES `nhanvien` WRITE;
 /*!40000 ALTER TABLE `nhanvien` DISABLE KEYS */;
-INSERT INTO `nhanvien` VALUES ('NV001','Admin','1985-03-15','Nam','001234567890','0901234567','admin@hrm.com','Da Nang','PB01',NULL,1,'DangLamViec','2020-01-01'),('NV002','Manager 1','1990-06-20','Nu','001234567891','0901234568','manager1@hrm.com','Da Nang','PB01',NULL,2,'DangLamViec','2021-03-15'),('NV003','Manager2','1988-09-10','Nam','001234567892','0901234569','manager2@hrm.com','Da Nang','PB03',NULL,3,'DangLamViec','2021-06-01'),('NV004','Employee','1995-01-25','Nam','001234567893','0901234570','emp1@hrm.com','Da Nang','PB01','CV05',4,'DangLamViec','2022-04-10'),('NV005','Emp2','1997-07-12','Nu','001234567894','0901234571','emp2@hrm.com','Da Nang','PB01','CV05',5,'DangLamViec','2022-05-20'),('NV006','Emp3','1993-11-08','Nam','001234567895','0901234572','emp3@hrm.com','Da Nang','PB05',NULL,6,'DangLamViec','2022-06-15'),('NV007','Emp4','1996-04-18','Nu','001234567896','0901234573','emp4@hrm.com','Da Nang','PB03','CV06',7,'DangLamViec','2023-01-10'),('NV008','Emp5','1998-08-30','Nam','001234567897','0901234574','emp5@hrm.com','Da Nang','PB02','CV05',8,'DangLamViec','2023-03-01'),('NV009','Emp6','1999-12-20','Nu','9876543','2345678','sdfds@gmail.com','Da Nang','PB04','CV05',9,'DangLamViec','2022-12-30');
+INSERT INTO `nhanvien` VALUES ('NV001','Admin','1985-03-15','Nam','001234567890','0901234567','admin@hrm.com','Da Nang','PB01',NULL,1,'DangLamViec','2020-01-01'),('NV002','Manager 1','1990-06-20','Nu','001234567891','0901234568','manager1@hrm.com','Da Nang','PB01',NULL,2,'DangLamViec','2021-03-15'),('NV003','Manager2','1988-09-10','Nam','001234567892','0901234569','manager2@hrm.com','Da Nang','PB03',NULL,3,'DangLamViec','2021-06-01'),('NV004','Employee','1995-01-25','Nam','001234567893','0901234570','emp1@hrm.com','Da Nang','PB01','CV05',4,'DangLamViec','2022-04-10'),('NV005','Emp2','1997-07-12','Nu','001234567894','0901234571','emp2@hrm.com','Da Nang','PB01','CV05',5,'DangLamViec','2022-05-20'),('NV006','Emp3','1993-11-08','Nam','001234567895','0901234572','emp3@hrm.com','Da Nang','PB05',NULL,6,'DangLamViec','2022-06-15'),('NV007','Emp4','1996-04-18','Nu','001234567896','0901234573','emp4@hrm.com','Da Nang','PB03','CV06',7,'DangLamViec','2023-01-10'),('NV008','Emp5','1998-08-30','Nam','001234567897','0901234574','emp5@hrm.com','Da Nang','PB02','CV05',8,'DangLamViec','2023-03-01'),('NV009','Emp6','1999-12-20','Nu','9876543','2345678','sdfds@gmail.com','Da Nang','PB04','CV05',9,'DangLamViec','2022-12-30'),('NV010','abc','2026-10-06','Nam','34567','345678','n@gmail.com','Da Nang','PB03','CV05',11,'DangLamViec','2026-10-03');
 /*!40000 ALTER TABLE `nhanvien` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,7 +363,7 @@ CREATE TABLE `taikhoan` (
   `NgayTao` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`MaTaiKhoan`),
   UNIQUE KEY `TenDangNhap` (`TenDangNhap`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,7 +372,7 @@ CREATE TABLE `taikhoan` (
 
 LOCK TABLES `taikhoan` WRITE;
 /*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
-INSERT INTO `taikhoan` VALUES (1,'admin','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Admin',1,'2026-09-22 15:10:39'),(2,'manager1','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Manager',1,'2026-09-22 15:10:39'),(3,'manager2','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Manager',1,'2026-09-22 15:10:39'),(4,'employee1','$2y$10$zJKFvOBSak.P5LnEbhAQUucJ1Bqp9yxBbJkxsFadFKpLs/DQ6SQZG','Employee',1,'2026-09-22 15:10:39'),(5,'employee2','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Employee',1,'2026-09-22 15:10:39'),(6,'employee3','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Employee',1,'2026-09-22 15:10:39'),(7,'employee4','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Employee',1,'2026-09-22 15:10:39'),(8,'employee5','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Employee',1,'2026-09-22 15:10:39'),(9,'employee6','$2y$10$5lv0xFEr6HbK45IKO0sGqefwWOxObyqEsIAUkm7cIYWQ6wgPG.4Ba','Employee',1,'2026-09-24 12:14:01');
+INSERT INTO `taikhoan` VALUES (1,'admin','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Admin',1,'2026-09-22 15:10:39'),(2,'manager1','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Manager',1,'2026-09-22 15:10:39'),(3,'manager2','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Manager',1,'2026-09-22 15:10:39'),(4,'employee1','$2y$10$zJKFvOBSak.P5LnEbhAQUucJ1Bqp9yxBbJkxsFadFKpLs/DQ6SQZG','Employee',1,'2026-09-22 15:10:39'),(5,'employee2','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Employee',1,'2026-09-22 15:10:39'),(6,'employee3','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Employee',1,'2026-09-22 15:10:39'),(7,'employee4','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Employee',1,'2026-09-22 15:10:39'),(8,'employee5','$2y$10$ukcIkoDLOne0QXyHZ3jqL.qVM04dCssBTbCbb3x9Uo3yV3qENOkUK','Employee',1,'2026-09-22 15:10:39'),(9,'employee6','$2y$10$5lv0xFEr6HbK45IKO0sGqefwWOxObyqEsIAUkm7cIYWQ6wgPG.4Ba','Employee',1,'2026-09-24 12:14:01'),(11,'123','$2y$10$T8iKrRI4AS9.uLKoa5c65e9bU9xQAAO0OaRY4emdjB5TUwRafSL1u','Admin',1,'2026-10-03 13:49:05');
 /*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -381,4 +385,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-10-03 10:13:11
+-- Dump completed on 2026-10-08 18:03:44

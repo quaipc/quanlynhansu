@@ -1,12 +1,27 @@
 <?php
 // UC11: Bao cao thong ke toan dien doanh nghiep - Manager
 $thangNam = $_GET['thang'] ?? date('Y-m');
+if (!preg_match('/^\d{4}-\d{2}$/', $thangNam)) $thangNam = date('Y-m');
+// Chi tiet drill-down: xem AI thuoc trang thai chuyen can nao
+$chiTiet = $_GET['chitiet'] ?? '';
+$validTT = ['DungGio', 'DiMuon', 'VeSom', 'NghiKhongPhep', 'NghiCoPhep'];
+if (!in_array($chiTiet, $validTT)) $chiTiet = '';
 
 // 1. Nhan su theo phong ban
 $nvPhongBan = $pdo->query("SELECT pb.TenPhongBan, COUNT(n.MaNV) AS SoNV FROM PhongBan pb LEFT JOIN NhanVien n ON pb.MaPhongBan=n.MaPhongBan AND n.TrangThaiLamViec='DangLamViec' GROUP BY pb.MaPhongBan, pb.TenPhongBan")->fetchAll();
 
 // 2. Chuyen can thang
-$chuyenCan = $pdo->query("SELECT TrangThaiCong, COUNT(*) AS SoLuong FROM ChamCong WHERE DATE_FORMAT(NgayChamCong, '%Y-%m') = '$thangNam' GROUP BY TrangThaiCong")->fetchAll();
+$stmtCC = $pdo->prepare("SELECT TrangThaiCong, COUNT(*) AS SoLuong FROM ChamCong WHERE DATE_FORMAT(NgayChamCong,'%Y-%m')=? GROUP BY TrangThaiCong");
+$stmtCC->execute([$thangNam]);
+$chuyenCan = $stmtCC->fetchAll();
+
+// 2b. Danh sach chi tiet theo trang thai (drill-down)
+$chiTietList = [];
+if ($chiTiet !== '') {
+    $stmtDT = $pdo->prepare("SELECT c.NgayChamCong, c.ThoiGianVao, c.ThoiGianRa, n.MaNV, n.HoVaTen FROM ChamCong c JOIN NhanVien n ON c.MaNV=n.MaNV WHERE DATE_FORMAT(c.NgayChamCong,'%Y-%m')=? AND c.TrangThaiCong=? ORDER BY c.NgayChamCong DESC");
+    $stmtDT->execute([$thangNam, $chiTiet]);
+    $chiTietList = $stmtDT->fetchAll();
+}
 
 // 3. Quy luong thang
 $quyLuong = $pdo->prepare("SELECT COUNT(*) AS SoPhieu, COALESCE(SUM(ThucLinh),0) AS TongQuy, COALESCE(SUM(CASE WHEN TrangThaiThanhToan='DaThanhToan' THEN ThucLinh ELSE 0 END),0) AS DaTra FROM BangLuong WHERE ThangNam=?");
@@ -46,9 +61,25 @@ renderHeader('Báo cáo thống kê toàn diện');
         <?php
         $labels = ['DungGio'=>'Đúng giờ','DiMuon'=>'Đi muộn','VeSom'=>'Về sớm','NghiKhongPhep'=>'Nghỉ không phép','NghiCoPhep'=>'Nghỉ có phép'];
         $h = ['Trạng thái', 'Số lượt']; $r = [];
-        foreach ($chuyenCan as $x) $r[] = [$labels[$x['TrangThaiCong']] ?? $x['TrangThaiCong'], $x['SoLuong']];
+        foreach ($chuyenCan as $x) {
+            $link = '<a href="?page=baocao&thang='.htmlspecialchars($thangNam).'&chitiet='.$x['TrangThaiCong'].'" class="text-blue-600 font-bold hover:underline" title="Xem danh sách">' . $x['SoLuong'] . ' <i class="fas fa-search text-xs"></i></a>';
+            $r[] = [$labels[$x['TrangThaiCong']] ?? $x['TrangThaiCong'], $link];
+        }
         renderTable($h, $r, 'Chưa có dữ liệu chấm công tháng này');
         ?>
+        <?php if ($chiTiet !== ''): ?>
+        <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+            <div class="flex items-center justify-between mb-3">
+                <h4 class="font-semibold text-sm">Danh sách "<?= $labels[$chiTiet] ?>" tháng <?= htmlspecialchars($thangNam) ?> (<?= count($chiTietList) ?> lượt)</h4>
+                <a href="?page=baocao&thang=<?= htmlspecialchars($thangNam) ?>" class="text-xs text-gray-500 hover:text-gray-700"><i class="fas fa-times mr-1"></i>Đóng</a>
+            </div>
+            <?php
+            $hd = ['Nhân viên', 'Ngày', 'Giờ vào', 'Giờ ra']; $rd = [];
+            foreach ($chiTietList as $ct) $rd[] = [htmlspecialchars($ct['HoVaTen']) . ' <span class="text-gray-400 text-xs">(' . $ct['MaNV'] . ')</span>', formatDate($ct['NgayChamCong']), $ct['ThoiGianVao'] ?? '--', $ct['ThoiGianRa'] ?? '--'];
+            renderTable($hd, $rd);
+            ?>
+        </div>
+        <?php endif; ?>
     </div>
     <div class="bg-white rounded-xl shadow-sm p-6">
         <h3 class="font-semibold mb-4"><i class="fas fa-money-bill-wave text-yellow-500 mr-2"></i>Biến động quỹ lương tháng <?= htmlspecialchars($thangNam) ?></h3>

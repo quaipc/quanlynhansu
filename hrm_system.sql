@@ -76,7 +76,7 @@ CREATE TABLE HopDongLaoDong (
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- 7. Bảng Chấm công
+-- 7. Bảng Chấm công (có duyệt công của Manager)
 CREATE TABLE ChamCong (
     ID_ChamCong BIGINT AUTO_INCREMENT PRIMARY KEY,
     MaNV VARCHAR(20) NOT NULL,
@@ -84,8 +84,11 @@ CREATE TABLE ChamCong (
     ThoiGianVao TIME NULL,
     ThoiGianRa TIME NULL,
     TrangThaiCong ENUM('DungGio', 'DiMuon', 'VeSom', 'NghiKhongPhep', 'NghiCoPhep') DEFAULT 'DungGio',
+    TrangThaiDuyet ENUM('ChoDuyet', 'DaDuyet', 'TuChoi') NOT NULL DEFAULT 'ChoDuyet',
+    MaNguoiDuyet VARCHAR(20) NULL,
     UNIQUE KEY UQ_ChamCong_Ngay (MaNV, NgayChamCong),
-    FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV) ON DELETE CASCADE
+    FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV) ON DELETE CASCADE,
+    FOREIGN KEY (MaNguoiDuyet) REFERENCES NhanVien(MaNV) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
 -- 8. Bảng Đơn xin nghỉ phép
